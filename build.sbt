@@ -309,10 +309,7 @@ lazy val zioConfigTypesafeMagnoliaTests = projectMatrix
     )
   )
   .dependsOn(zioConfig % "compile->compile;test->test", zioConfigTypesafe, zioConfigMagnolia, zioConfigDerivation)
-  .jvmPlatform(
-    scalaVersions = Seq(Scala212, Scala213 /*, Scala3*/ ),
-    settings = jvmSettings
-  ) // FIXME: annotations for Scala 3 are not implemented, tests in zioConfigTypesafeMagnoliaTests fail
+  .jvmPlatform(scalaVersions = Seq(Scala212, Scala213, Scala3), settings = jvmSettings)
 
 lazy val docs = projectMatrix
   .in(file("zio-config-docs"))
